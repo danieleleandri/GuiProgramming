@@ -57,7 +57,8 @@ public class GuiDemo extends JFrame{
 		
 		IconSupport iconSupport = new IconSupport(drawPanel);
 		content.add( iconSupport.createToolbar(true), BorderLayout.SOUTH );
-		
+		//The following toolbar was requested for unit 12
+		content.add( iconSupport.createAnotherToolbar(makeBackgroundMenu(),true), BorderLayout.NORTH );
 		// Create the menu bar and add it to the frame.  The TextMenu is defined by
 		// a separate class.  The other menus are created in this class.
 		
@@ -109,6 +110,7 @@ public class GuiDemo extends JFrame{
 	 */
 	private JMenu makeBackgroundMenu() {
 		JMenu menu = new JMenu("Background");
+		
 		menu.add(new ChooseBackgroundAction("Mandelbrot"));
 		menu.add(new ChooseBackgroundAction("Earthrise"));
 		menu.add(new ChooseBackgroundAction("Sunset"));

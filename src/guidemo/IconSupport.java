@@ -40,9 +40,14 @@ public class IconSupport {
 	
 
 
-	
+/**
+ * The method was requested by unit Laboratory.
+ * The method creates a new menu called Stamper containg
+ * the same button than the lower toolbar	
+ * @return the created JMenu
+ */
 	public JMenu createMenu() {
-		JMenu menu = new JMenu("Stamper...");
+		JMenu menu = new JMenu("Stamper");
 		for(Action action : actions) {
 			menu.add(action);
 		}		
@@ -62,6 +67,23 @@ public class IconSupport {
 		tbar.addSeparator(new Dimension(15,0));
 		tbar.add(actions.get(actions.size()-1));
 		return tbar;
+	}
+	
+	
+	/**
+	 * Return a toolbar containing buttons representing the images that can be added
+	 * to the DrawPanel.
+	 * @param horizontal  a value of JToolBar.HORIZONTAL or JToolBar.VERTICAL tells
+	 * whether the toolbar is meant to have horizontal or vertical orientation.
+	 */
+	public JToolBar createAnotherToolbar(JMenu menu, boolean horizontal) {
+		JToolBar tbar = new JToolBar( horizontal? JToolBar.HORIZONTAL : JToolBar.VERTICAL);
+		int coun =  menu.getMenuComponentCount();
+		for(int i = 0; i < coun; i++) {
+			tbar.add(menu.getMenuComponent(i));
+		}
+		return tbar;
+
 	}
 	
 	private class NoIconAction extends AbstractAction {
@@ -98,5 +120,7 @@ public class IconSupport {
 			panel.setCursor(c);
 		}
 	}
+
+
 
 }
