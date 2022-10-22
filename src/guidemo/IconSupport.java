@@ -79,8 +79,10 @@ public class IconSupport {
 	public JToolBar createAnotherToolbar(JMenu menu, boolean horizontal) {
 		JToolBar tbar = new JToolBar( horizontal? JToolBar.HORIZONTAL : JToolBar.VERTICAL);
 		int coun =  menu.getMenuComponentCount();
-		for(int i = 0; i < coun; i++) {
-			tbar.add(menu.getMenuComponent(i));
+		Component[] components = menu.getMenuComponents();
+		for(Component component: components) {
+			
+			tbar.add(component);
 		}
 		return tbar;
 
