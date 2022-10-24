@@ -55,8 +55,8 @@ public class TextMenu extends JMenu {
 		
 		/*The following is the Justify submenu*/
 		final JMenu justify = new JMenu("Justify");
-		
-		final JMenuItem right = new JMenuItem("Right");
+		ButtonGroup justifyGroup = new ButtonGroup();
+		final JRadioButtonMenuItem right = new JRadioButtonMenuItem("Right");
 		right.addActionListener( new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
 				panel.getTextItem().setJustify(2);
@@ -64,23 +64,29 @@ public class TextMenu extends JMenu {
 			}
 		});
 		justify.add(right);
-		final JMenuItem left = new JMenuItem("Left");
+		justifyGroup.add(right);
+		final JRadioButtonMenuItem left = new JRadioButtonMenuItem("Left");
 		left.addActionListener( new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
 				panel.getTextItem().setJustify(1);
 				panel.repaint();				
 			}
 		});
+		left.setSelected(true);
+		justifyGroup.add(left);
 		justify.add(left);
-		final JMenuItem center = new JMenuItem("Center");
+		
+		final JRadioButtonMenuItem center = new JRadioButtonMenuItem("Center");
 		center.addActionListener( new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
 				panel.getTextItem().setJustify(0);
 				panel.repaint();				
 			}
 		});
+		justifyGroup.add(center);
 		justify.add(center);
 		add(justify);
+		
 		
 		
 		
