@@ -52,6 +52,38 @@ public class TextMenu extends JMenu {
 				}
 			}
 		});
+		
+		/*The following is the Justify submenu*/
+		final JMenu justify = new JMenu("Justify");
+		
+		final JMenuItem right = new JMenuItem("Right");
+		right.addActionListener( new ActionListener() {
+			public void actionPerformed(ActionEvent evt) {
+				panel.getTextItem().setJustify(2);
+				panel.repaint();				
+			}
+		});
+		justify.add(right);
+		final JMenuItem left = new JMenuItem("Left");
+		left.addActionListener( new ActionListener() {
+			public void actionPerformed(ActionEvent evt) {
+				panel.getTextItem().setJustify(1);
+				panel.repaint();				
+			}
+		});
+		justify.add(left);
+		final JMenuItem center = new JMenuItem("Center");
+		center.addActionListener( new ActionListener() {
+			public void actionPerformed(ActionEvent evt) {
+				panel.getTextItem().setJustify(0);
+				panel.repaint();				
+			}
+		});
+		justify.add(center);
+		add(justify);
+		
+		
+		
 		final JMenuItem color = new JMenuItem("Set Color...");
 		color.addActionListener( new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
