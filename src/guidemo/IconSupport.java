@@ -78,10 +78,13 @@ public class IconSupport {
 	 */
 	public JToolBar createAnotherToolbar(JMenu menu, boolean horizontal) {
 		JToolBar tbar = new JToolBar( horizontal? JToolBar.HORIZONTAL : JToolBar.VERTICAL);
-		int coun =  menu.getMenuComponentCount();
 		Component[] components = menu.getMenuComponents();
 		for(Component component: components) {
-			
+			//This is to hide the text on the toolbar
+			if(component.getClass().toString().contains("JMenu")) {				
+				((JMenuItem)component).setHideActionText(true);
+			}
+				
 			tbar.add(component);
 		}
 		return tbar;
