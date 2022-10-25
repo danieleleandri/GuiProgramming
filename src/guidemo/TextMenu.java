@@ -54,6 +54,33 @@ public class TextMenu extends JMenu {
 			}
 		});
 		
+		
+		/**
+		 * The following menu item and its ActionListener was designed
+		 * to change the line-height of the text
+		 * Modificato
+		 */
+		final JMenuItem lineHeight = new JMenuItem("Set line-height...");
+		lineHeight.addActionListener( new ActionListener() {
+			public void actionPerformed(ActionEvent evt) {
+				Double currentSize = panel.getTextItem().getLineHeightMultiplier();
+				String s = JOptionPane.showInputDialog(panel, "What line-height do you want to use?",currentSize);
+				if (s != null && s.trim().length() > 0) {
+					try {
+						Double newLineMultiplier = Double.parseDouble(s.trim()); // can throw NumberFormatException
+						panel.getTextItem().setLineHeightMultiplier(newLineMultiplier); // can throw IllegalArgumentException
+						panel.repaint();
+					}
+					catch (Exception e) {
+						JOptionPane.showMessageDialog(panel, s + " is not a legal text height multiplier.\n"
+								+"Please enter a positive double.");
+					}
+				}
+			}
+		});
+		
+		add(lineHeight);
+		//---------
 		/*The following is the Justify submenu*/
 		JMenu justify = new JMenu("Justify");
 		ButtonGroup justifyGroup = new ButtonGroup();
