@@ -15,6 +15,7 @@ public class TextMenu extends JMenu {
 	
 	private JCheckBoxMenuItem bold;   // controls whether the text is bold or not.
 	private JCheckBoxMenuItem italic; // controls whether the text is italic or not.
+	final JRadioButtonMenuItem  left; //static to be resetted by the new command
 	
 	/**
 	 * Constructor creates all the menu commands and adds them to the menu.
@@ -54,7 +55,7 @@ public class TextMenu extends JMenu {
 		});
 		
 		/*The following is the Justify submenu*/
-		final JMenu justify = new JMenu("Justify");
+		JMenu justify = new JMenu("Justify");
 		ButtonGroup justifyGroup = new ButtonGroup();
 		final JRadioButtonMenuItem right = new JRadioButtonMenuItem("Right");
 		right.addActionListener( new ActionListener() {
@@ -65,7 +66,7 @@ public class TextMenu extends JMenu {
 		});
 		justify.add(right);
 		justifyGroup.add(right);
-		final JRadioButtonMenuItem left = new JRadioButtonMenuItem("Left");
+		left = new JRadioButtonMenuItem("Left");
 		left.addActionListener( new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
 				panel.getTextItem().setJustify(1);
@@ -124,6 +125,7 @@ public class TextMenu extends JMenu {
 		addSeparator();
 		add(makeFontNameSubmenu());
 	}
+
 	
 	/**
 	 * Reset the state of the menu to reflect the default settings for text
@@ -135,6 +137,7 @@ public class TextMenu extends JMenu {
 	public void setDefaults() {
 		italic.setSelected(false);
 		bold.setSelected(false);
+		left.setSelected(true);
 	}
 	
 	/**
