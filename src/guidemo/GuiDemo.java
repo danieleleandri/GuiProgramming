@@ -43,11 +43,13 @@ public class GuiDemo extends JFrame {
 		// Create the DrawPanel that fills most of the window, and customize it.
 
 		drawPanel = new DrawPanel();
-		drawPanel.getTextItem().setText("Big bugs have little bugs\n" + "      Upon their backs to bite 'em,\n"
-				+ "And little bugs have littler bugs,\n" + "      And so it goes, ad infinitum.");
+//		drawPanel.getTextItem().setText("Big bugs have little bugs\n" + "      Upon their backs to bite 'em,\n"
+//				+ "And little bugs have littler bugs,\n" + "      And so it goes, ad infinitum.");
+		drawPanel.getTextItem().setText("La gatta frettolosa fece i gattini ciechi\n" + "(Hurried cat made blind kittens)\n"
+				+ "-old italian saying-");
 		drawPanel.getTextItem().setFontSize(36);
 		drawPanel.getTextItem().setJustify(TextItem.LEFT);
-		drawPanel.setBackgroundImage(Util.getImageResource("resources/images/mandelbrot.jpeg"));
+		drawPanel.setBackgroundImage(Util.getImageResource("resources/images/cloud.jpeg"));
 		content.add(drawPanel, BorderLayout.CENTER);
 
 		// Add an icon toolbar to the SOUTH position of the layout
